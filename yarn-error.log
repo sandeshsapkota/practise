@@ -1,0 +1,55 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\SUBASH\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js watch
+
+PATH: 
+  C:\Users\SUBASH\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\SUBASH\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files\Git\cmd;C:\WINDOWS\System32\OpenSSH;C:\Program Files\nodejs;C:\Users\SUBASH\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\SUBASH\AppData\Local\Microsoft\WindowsApps;C:\Users\SUBASH\AppData\Roaming\npm;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+
+Yarn version: 
+  1.19.1
+
+Node version: 
+  13.6.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  SyntaxError: C:\Users\SUBASH\Desktop\practise\package.json: Unexpected string in JSON at position 436
+      at JSON.parse (<anonymous>)
+      at C:\Users\SUBASH\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (C:\Users\SUBASH\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:304:30)
+      at C:\Users\SUBASH\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:315:13
+
+npm manifest: 
+  {
+    "name": "project",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "dev": "npm run development",
+      "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+      "watch": "npm run development -- --watch",
+     "hot": "NODE_ENV=development webpack-dev-server --inline --hot --https"
+      "prod": "npm run production",
+      "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "cross-env": "^6.0.3",
+      "laravel-mix": "^5.0.0",
+      "resolve-url-loader": "^3.1.0",
+      "sass": "^1.23.3",
+      "sass-loader": "^8.0.0",
+      "vue-template-compiler": "^2.6.10"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

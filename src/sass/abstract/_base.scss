@@ -1,0 +1,23 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 16px;
+  background-color: rgb(117, 170, 147);
+  font-family: "Roboto", sans-serif;
+  overflow: hidden;
+}
+
+button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+}

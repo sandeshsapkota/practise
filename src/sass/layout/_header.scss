@@ -1,0 +1,199 @@
+.header {
+  margin-bottom: 12px;
+
+  .container {
+    border-bottom: 1px solid #000;
+    padding: 14px 0 24px;
+  }
+
+  &__logo {
+    font-size: 18px;
+    text-decoration: none;
+    color: #000;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 4px;
+  }
+}
+
+//----------------------------------------
+//  HAMBURGER ICON
+//----------------------------------------
+
+.burger__icon {
+  width: 24px;
+  overflow: hidden;
+
+  &-lines{
+    display: block;
+  }
+
+  &-lines span {
+    content: "";
+    height: 2px;
+    width: 200%;
+    margin-left: -100%;
+    display: block;
+    margin-top: 7px;
+    background: linear-gradient(
+      to right,
+      $red 0%,
+      $red 50%,
+      $black 50%,
+      $black 100%
+    );
+
+    // transtions on hover only
+
+    //&:nth-child(1) {
+    //  margin-top: 0;
+    //  transition-delay: 0.1s;
+    //}
+    //
+    //&:nth-child(2) {
+    //  transition-delay: 0.2s;
+    //}
+    //
+    //&:nth-child(3) {
+    //  transition-delay: 0.3s;
+    //}
+  }
+
+  &:hover {
+    span {
+      margin-left: -0%;
+      transition: 0.3s;
+
+      &:nth-child(1) {
+        margin-top: 0;
+        transition-delay: 0.1s;
+      }
+
+      &:nth-child(2) {
+        transition-delay: 0.2s;
+      }
+
+      &:nth-child(3) {
+        transition-delay: 0.3s;
+      }
+    }
+  }
+}
+
+//----------------------------------------
+//  BTN PROJECTS
+//----------------------------------------
+
+.project__btn {
+  margin-right: 140px;
+  font-weight: 500;
+  font-size: 15px;
+  color: $black_light;
+  cursor: pointer;
+  position: relative;
+
+  // ------- BTN HOVER STATE -------- //
+
+  // Transtions variables
+  $n: 15;
+  $delay: 0.03s;
+
+  &:hover {
+    .project__btn-text span {
+      transform: translateY(-110%);
+
+      @for $i from 1 through $n {
+        $in: $delay * ($i - 1);
+        &:nth-child(#{$i}) {
+          transition-delay: #{$in};
+        }
+      }
+    }
+
+    .project__btn-square span {
+      &:nth-child(1) {
+        left: 100%;
+        transform: translateX(-100%);
+        transition-delay: 0.1s;
+      }
+
+      &:nth-child(2) {
+        top: 100%;
+        transform: translateY(-100%);
+      }
+
+      &:nth-child(3) {
+        right: 100%;
+        transform: translateX(100%);
+      }
+
+      &:nth-child(4) {
+        transform: translateY(100%);
+        bottom: 100%;
+      }
+    }
+  }
+
+  .project__btn-text {
+    overflow: hidden;
+    color: #333;
+    font-weight: 500;
+    display: flex;
+    height: 100%;
+    align-items: center;
+
+    span {
+      margin-right: 1px;
+      transition: 0.3s;
+      text-shadow: 0 20px 0 #333333;
+
+      @for $i from 1 through $n {
+        $out: $delay * ($n - $i);
+        &:nth-child(#{$i}) {
+          transition-delay: #{$out};
+        }
+      }
+    }
+
+    .spacing:not(:first-child) {
+      margin-left: 4px;
+    }
+  }
+
+  .project__btn-square {
+    width: 12px;
+    height: 12px;
+    margin-left: 20px;
+    position: relative;
+  }
+
+  .project__btn-square span {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background-color: $black;
+    transition: all 0.3s ease;
+
+    &:nth-child(1) {
+      top: 0;
+      left: 0;
+    }
+    &:nth-child(2) {
+      top: 0;
+      right: 0;
+    }
+    &:nth-child(3) {
+      right: 0;
+      bottom: 0;
+    }
+    &:nth-child(4) {
+      bottom: 0;
+      left: 0;
+    }
+  }
+}
+
+section {
+  height: 100vh;
+  width: 100vw;
+}
