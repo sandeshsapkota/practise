@@ -13,6 +13,8 @@
 }
 
 .cursorfollower--large {
-  transform: translate(-50%, -50%) scale(1.18);
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
   box-shadow: 0 0 0 1.5px $red;
 }

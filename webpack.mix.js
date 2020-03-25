@@ -6,4 +6,4 @@ mix
     processCssUrls: false
   });
 
-mix.disableSuccessNotifications();
+// mix.disableSuccessNotifications();

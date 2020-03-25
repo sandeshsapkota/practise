@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -12,33 +12,76 @@
     <link rel="stylesheet" href="dist/app.css" />
   </head>
   <body>
-    <!-- .header starts -->
-    <header class="header">
-      <div class="container justify-between">
-  <!--        <a href="#" class="header__logo clickable">parsons</a>-->
-  <!--        <div class="project__btn items-center clickable">-->
-  <!--          <div class="project__btn-text">View all projects</div>-->
-  <!--          <div class="project__btn-square">-->
-  <!--            <span></span>-->
-  <!--            <span></span>-->
-  <!--            <span></span>-->
-  <!--            <span></span>-->
-  <!--          </div>-->
-  <!--        </div>-->
-        <button class="burger__icon clickable">
-          <span class="burger__icon-lines">
+    
+     <!-- <header class="header"> -->
+<!-- <div class="container justify-between">
+        <a href="#" class="header__logo clickable">parsons</a>
+        <div class="project__btn items-center clickable">
+          <div class="project__btn-text">View all projects</div>
+          <div class="project__btn-square">
             <span></span>
             <span></span>
             <span></span>
+            <span></span>
+          </div>
+        </div>
+        <button class="burger">
+          <span class="burger__icon clickable">
+            <span class="burger__icon-lines">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+            <span class="burger__icon-lines-copy">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
           </span>
         </button>
       </div>
-    </header>
-    <!-- .header ends -->
-    <!-- section starts -->
-    <section class="section"></section>
-    <span class="cursorfollower cursorfollower--large"></span>
-    <!-- section ends -->
-    <script src="src/js/app.js"></script>
+    </header>  -->
+<!-- .header ends -->
+<!-- section starts -->
+<!-- <section class="section"></section>
+    <span class="cursorfollower cursorfollower--large"></span> -->
+<!-- section ends -->
+<!-- <script src="src/js/app.js"></script> -->
+<!-- </body> -->
+<!-- </html>  -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Baloo+Chettan+2|Liu+Jian+Mao+Cao&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="dist/app.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="qoutewrapper">
+        <h1>Have an Inspirational dayd!</h1>
+        <button id="btn">Genererate Qoute</button>
+      </div>
+      <div class="overlaycontainer"></div>
+    </div>
+    <script>
+      console.log("hil");
+      console.log(document.querySelector("#btn"));
+      document.querySelector("#btn").addEventListener("click", function() {
+        console.log("hi");
+        document.querySelector(".overlaycontainer").style.display = "flex";
+      });
+    </script>
   </body>
 </html>
+
+position your `.overlaycontainer` by adding these CSS lines and it will show up.
+``` position: absolute; left: 0; top: 0; ``` What was happening before is,
+`.qoutewrapper` class was taking `900px` width in the container. and
+`.overlaycontainer` was taking remaning space.
