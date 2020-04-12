@@ -142,6 +142,12 @@ var markup = textOfBtnProjectValue.split(" ").map(function (item) {
 }).join("");
 textOfBtnProject.innerHTML = markup; //-------------------------------------------------------
 
+function $$(selector, context) {
+  context = context || document;
+  var elements = context.querySelectorAll(selector);
+  return Array.prototype.slice.call(elements);
+}
+
 /***/ }),
 
 /***/ "./src/sass/app.scss":
@@ -162,8 +168,8 @@ textOfBtnProject.innerHTML = markup; //-----------------------------------------
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\SUBASH\Desktop\practise\src\js\app.js */"./src/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\SUBASH\Desktop\practise\src\sass\app.scss */"./src/sass/app.scss");
+__webpack_require__(/*! E:\practise\src\js\app.js */"./src/js/app.js");
+module.exports = __webpack_require__(/*! E:\practise\src\sass\app.scss */"./src/sass/app.scss");
 
 
 /***/ })

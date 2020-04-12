@@ -1,3 +1,5 @@
+import "../sass/app.scss";
+
 //-------------------------------------------------------
 // variables
 //-------------------------------------------------------
@@ -19,6 +21,12 @@ function findUpParentNode(el, parentClassName) {
     if (el.classList.contains(parentClassName)) return el;
   }
   return false;
+}
+
+function $$(selector, context) {
+  context = context || document;
+  var elements = context.querySelectorAll(selector);
+  return [...elements];
 }
 
 //-------------------------------------------------------
@@ -65,3 +73,4 @@ const markup = textOfBtnProjectValue
 textOfBtnProject.innerHTML = markup;
 
 //-------------------------------------------------------
+console.log("hasdji");
