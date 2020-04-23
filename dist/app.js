@@ -93,104 +93,27 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-console.clear(); //-------------------------------------------------------
-// variables
-//-------------------------------------------------------
-
-var cursorFollower = document.querySelector(".cursorfollower"),
-    btnProject = document.querySelector(".project__btn"),
-    textOfBtnProject = document.querySelector(".project__btn-text"),
-    textOfBtnProjectValue = textOfBtnProject.textContent,
-    burgerIcon = document.querySelector(".burger"); //-------------------------------------------------------
-// helper functions
-//-------------------------------------------------------
-
-function findUpParentNode(el, parentClassName) {
-  while (el.parentNode) {
-    el = el.parentNode;
-    if (el.tagName === undefined) return; // while looping through parentNode, html parentNode document's tagName is undefined
-
-    if (el.classList.contains(parentClassName)) return el;
-  }
-
-  return false;
-}
-
-function $$(selector, context) {
-  context = context || document;
-  var elements = context.querySelectorAll(selector);
-  return _toConsumableArray(elements);
-} //-------------------------------------------------------
-//-------------------------------------------------------
-// event handler
-//-------------------------------------------------------
-// cursor follower
-
-
-window.addEventListener("mousemove", function (e) {
-  var isBurgerIcon = findUpParentNode(e.target, "burger");
-  var isClickable = e.target.classList.contains("clickable") || findUpParentNode(e.target, "clickable");
-  cursorFollower.classList[isClickable ? "add" : "remove"]("cursorfollower--large");
-
-  if (isBurgerIcon) {
-    cursorFollower.style.top = "".concat(burgerIcon.offsetTop, "px");
-    cursorFollower.style.left = "".concat(burgerIcon.offsetLeft, "px");
-    cursorFollower.style.transform = "none";
-  } else {
-    cursorFollower.style.top = "".concat(e.y, "px");
-    cursorFollower.style.left = "".concat(e.x, "px");
-  }
+var person__wrapper = document.querySelectorAll(".person__item");
+observer = new IntersectionObserver(function (entries) {
+  entries.forEach(function (entry) {
+    if (entry.intersectionRatio > 0) {
+      var el = entry.target.dataset.index;
+      document.getElementById("index").innerHTML = el;
+    } else {}
+  });
 });
-var markup = textOfBtnProjectValue.split(" ").map(function (item) {
-  var eachLetterMarkUp = item.split("").map(function (item, index) {
-    return "<span class=\"".concat(index === 0 ? "spacing" : "", "\"> ").concat(item, " </span> ");
-  }).join("");
-  return eachLetterMarkUp;
-}).join("");
-textOfBtnProject.innerHTML = markup; //-------------------------------------------------------
+person__wrapper.forEach(function (image) {
+  observer.observe(image);
+});
 
-var prevBtn = document.querySelector(".slide__arrow-prev");
-var nextBtn = document.querySelector(".slide__arrow-next");
-var slide = document.querySelector(".slide");
-var slideList = document.querySelector(".slide__list");
-var slideItems = document.querySelectorAll(".slide__item");
-var slideDesc = {
-  items: 3,
-  margin: 16,
-  transitionDuration: "0.3"
+window.onscroll = function (event) {
+  var viewPortHeight = window.innerHeight;
+  var documentHeight = document.documentElement.scrollHeight;
+  var scrolledAmount = document.documentElement.scrollTop;
+  var scrollPercent = 100 * window.scrollY / (documentHeight - viewPortHeight);
+  var marginTop = (window.innerHeight - 38) / 100 * scrollPercent;
+  document.getElementById("index").style.marginTop = marginTop + "px";
 };
-var slideWidth = slide.offsetWidth;
-var slideItemWidth = (slideWidth - slideDesc.margin * (slideDesc.items - 1)) / slideDesc.items;
-slideItems.forEach(function (cur) {
-  cur.style.width = "".concat(slideItemWidth, "px");
-  cur.style.marginRight = "".concat(slideDesc.margin, "px");
-});
-var distanceToTranslate = 0;
-
-function translateSlide(str) {
-  var distance = str === "prev" ? slideItemWidth + 16 : -slideItemWidth - 16;
-  distanceToTranslate = distanceToTranslate + distance;
-  slideList.style.transform = "translateX(".concat(distanceToTranslate, "px)");
-}
-
-prevBtn.addEventListener("click", function () {
-  translateSlide("prev");
-});
-nextBtn.addEventListener("click", function () {
-  translateSlide("next");
-});
 
 /***/ }),
 
