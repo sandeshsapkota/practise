@@ -1,10 +1,4 @@
 {
     "/dist/app.js": "/dist/app.js",
-    "/dist/app.css": "/dist/app.css",
-    "/dist/app.e047d06d9e321943a6b3.hot-update.js": "/dist/app.e047d06d9e321943a6b3.hot-update.js",
-    "/dist/app.caba7b93406bc31d9657.hot-update.js": "/dist/app.caba7b93406bc31d9657.hot-update.js",
-    "/dist/app.6d6b3f378ed4090cef44.hot-update.js": "/dist/app.6d6b3f378ed4090cef44.hot-update.js",
-    "/dist/app.2f8e1b18ce31e24f0f5b.hot-update.js": "/dist/app.2f8e1b18ce31e24f0f5b.hot-update.js",
-    "/dist/app.78a82296eec1501d8fdd.hot-update.js": "/dist/app.78a82296eec1501d8fdd.hot-update.js",
-    "/dist/app.395f8f02aa4bad0b527a.hot-update.js": "/dist/app.395f8f02aa4bad0b527a.hot-update.js"
+    "/dist/app.css": "/dist/app.css"
 }

@@ -1,5 +1,4 @@
-import "../sass/app.scss";
-
+console.clear();
 //-------------------------------------------------------
 // variables
 //-------------------------------------------------------
@@ -58,7 +57,7 @@ window.addEventListener("mousemove", function(e) {
 
 const markup = textOfBtnProjectValue
   .split(" ")
-  .map(item => {
+  .map((item) => {
     const eachLetterMarkUp = item
       .split("")
       .map(
@@ -73,4 +72,38 @@ const markup = textOfBtnProjectValue
 textOfBtnProject.innerHTML = markup;
 
 //-------------------------------------------------------
-console.log("hasdji");
+
+const prevBtn = document.querySelector(".slide__arrow-prev");
+const nextBtn = document.querySelector(".slide__arrow-next");
+const slide = document.querySelector(".slide");
+const slideList = document.querySelector(".slide__list");
+const slideItems = document.querySelectorAll(".slide__item");
+const slideDesc = {
+  items: 3,
+  margin: 16,
+  transitionDuration: "0.3",
+};
+const slideWidth = slide.offsetWidth;
+const slideItemWidth =
+  (slideWidth - slideDesc.margin * (slideDesc.items - 1)) / slideDesc.items;
+
+slideItems.forEach((cur) => {
+  cur.style.width = `${slideItemWidth}px`;
+  cur.style.marginRight = `${slideDesc.margin}px`;
+});
+
+let distanceToTranslate = 0;
+
+function translateSlide(str) {
+  let distance = str === "prev" ? slideItemWidth + 16 : -slideItemWidth - 16;
+  distanceToTranslate = distanceToTranslate + distance;
+  slideList.style.transform = `translateX(${distanceToTranslate}px)`;
+}
+
+prevBtn.addEventListener("click", function() {
+  translateSlide("prev");
+});
+
+nextBtn.addEventListener("click", function() {
+  translateSlide("next");
+});

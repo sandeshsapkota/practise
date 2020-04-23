@@ -4,7 +4,8 @@
   "description": "",
   "main": "webpack.mix.js",
   "dependencies": {
-    "laravel-mix": "^4.0.0"
+    "laravel-mix": "^4.0.0",
+    "live-server": "^1.2.1"
   },
   "devDependencies": {
     "cross-env": "^7.0.2",

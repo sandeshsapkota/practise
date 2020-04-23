@@ -93,9 +93,22 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-//-------------------------------------------------------
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+console.clear(); //-------------------------------------------------------
 // variables
 //-------------------------------------------------------
+
 var cursorFollower = document.querySelector(".cursorfollower"),
     btnProject = document.querySelector(".project__btn"),
     textOfBtnProject = document.querySelector(".project__btn-text"),
@@ -113,6 +126,12 @@ function findUpParentNode(el, parentClassName) {
   }
 
   return false;
+}
+
+function $$(selector, context) {
+  context = context || document;
+  var elements = context.querySelectorAll(selector);
+  return _toConsumableArray(elements);
 } //-------------------------------------------------------
 //-------------------------------------------------------
 // event handler
@@ -142,11 +161,36 @@ var markup = textOfBtnProjectValue.split(" ").map(function (item) {
 }).join("");
 textOfBtnProject.innerHTML = markup; //-------------------------------------------------------
 
-function $$(selector, context) {
-  context = context || document;
-  var elements = context.querySelectorAll(selector);
-  return Array.prototype.slice.call(elements);
+var prevBtn = document.querySelector(".slide__arrow-prev");
+var nextBtn = document.querySelector(".slide__arrow-next");
+var slide = document.querySelector(".slide");
+var slideList = document.querySelector(".slide__list");
+var slideItems = document.querySelectorAll(".slide__item");
+var slideDesc = {
+  items: 3,
+  margin: 16,
+  transitionDuration: "0.3"
+};
+var slideWidth = slide.offsetWidth;
+var slideItemWidth = (slideWidth - slideDesc.margin * (slideDesc.items - 1)) / slideDesc.items;
+slideItems.forEach(function (cur) {
+  cur.style.width = "".concat(slideItemWidth, "px");
+  cur.style.marginRight = "".concat(slideDesc.margin, "px");
+});
+var distanceToTranslate = 0;
+
+function translateSlide(str) {
+  var distance = str === "prev" ? slideItemWidth + 16 : -slideItemWidth - 16;
+  distanceToTranslate = distanceToTranslate + distance;
+  slideList.style.transform = "translateX(".concat(distanceToTranslate, "px)");
 }
+
+prevBtn.addEventListener("click", function () {
+  translateSlide("prev");
+});
+nextBtn.addEventListener("click", function () {
+  translateSlide("next");
+});
 
 /***/ }),
 
