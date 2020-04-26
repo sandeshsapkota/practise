@@ -12,37 +12,30 @@
     <link rel="stylesheet" href="dist/app.css" />
   </head>
   <body>
-    <header class="header__wrapper"></header>
-
-    <section class="person__wrapper">
-      <article data-index="A" class="person__item">Adam</article>
-      <article data-index="B" class="person__item">Bobby</article>
-      <article data-index="C" class="person__item">Carla</article>
-      <article data-index="D" class="person__item">Debby</article>
-      <article data-index="E" class="person__item">Emil</article>
-      <article data-index="F" class="person__item">F</article>
-      <article data-index="G" class="person__item">G</article>
-      <article data-index="H" class="person__item">H</article>
-      <article data-index="I" class="person__item">I</article>
-      <article data-index="J" class="person__item">J</article>
-      <article data-index="K" class="person__item">K</article>
-      <article data-index="L" class="person__item">L</article>
-      <article data-index="M" class="person__item">M...</article>
-      <article data-index="N" class="person__item">N...</article>
-      <article data-index="O" class="person__item">O...</article>
-      <article data-index="P" class="person__item">P...</article>
-      <article data-index="Q" class="person__item">Q...</article>
-      <article data-index="R" class="person__item">R...</article>
-      <article data-index="S" class="person__item">S...</article>
-      <article data-index="T" class="person__item">T...</article>
-      <article data-index="U" class="person__item">U...</article>
-      <article data-index="V" class="person__item">V...</article>
-      <article data-index="W" class="person__item">W...</article>
-      <article data-index="X" class="person__item">X...</article>
-      <article data-index="Y" class="person__item">Y...</article>
-      <article data-index="Z" class="person__item">Z...</article>
-    </section>
-    <div id="index">A</div>
-    <script src="dist/app.js"></script>
+    <header class="header">
+      <div class="container">
+        All countries list
+      </div>
+    </header>
+    <main class="content">
+      <div class="container">
+        <form class="content__form">
+          <input class="content__search" />
+        </form>
+        <div class="scroll__navigator">
+          <span class="scroll__navigated"></span>
+        </div>
+        <section class="country">
+          <ul class="country__list">
+            <li class="country__item card">
+              <span class="country__name">Nepal</span
+              ><span class="country__capital">Kathmandu</span>
+              <a href="javascript:;" class="country__flag"></a>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+    <script src="src/js/app.js"></script>
   </body>
 </html>

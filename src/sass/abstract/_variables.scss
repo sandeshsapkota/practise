@@ -1,6 +1,22 @@
-$black: #222;
-$black_light: #333;
+// -------------------------------------
+// colors
+// -------------------------------------
 
-$red: rgb(252, 62, 29);
+$color_white: #fff;
+$color_black: #000;
+$color_black_light: #333;
+$card_bg: $color_white;
 
-/* A component */
+// -------------------------------------
+// border-radius
+// -------------------------------------
+
+$border_radius_sm: 4px;
+$border_radius_md: 12px;
+$border_radius_lg: 16px;
+
+// -------------------------------------
+// shadow
+// -------------------------------------
+
+$shadow_normal: 0 0 12px 12px rgba($color_black, 0.054);

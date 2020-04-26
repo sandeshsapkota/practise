@@ -1,27 +1,54 @@
-const person__wrapper = document.querySelectorAll(".person__item");
+// --------------------------------------------
+// variables
+// --------------------------------------------
 
-observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.intersectionRatio > 0) {
-      let el = entry.target.dataset.index;
-      document.getElementById("index").innerHTML = el;
-    } else {
-    }
-  });
-});
+const html = document.documentElement,
+  body = document.body,
+  countryList = document.querySelector(".country__list");
+scrollNavigated = document.querySelector(".scroll__navigated");
+let windowHeight;
 
-person__wrapper.forEach((image) => {
-  observer.observe(image);
-});
+// --------------------------------------------
+// function
+// --------------------------------------------
 
-window.onscroll = function(event) {
-  var viewPortHeight = window.innerHeight;
-  var documentHeight = document.documentElement.scrollHeight;
-  var scrolledAmount = document.documentElement.scrollTop;
-  const scrollPercent =
-    (100 * window.scrollY) / (documentHeight - viewPortHeight);
+async function prepareListOfCountries() {
+  let list = await fetch("https://restcountries.eu/rest/v2/all");
+  list = Array.from(await list.json());
+  let markup = list
+    .map((country, index) => {
+      return `<li class="country__item card">
+              <span class="country__name">${country.name}</span
+              ><span class="country__capital">${country.capital}</span>
+              <a href="javascript:;" class="country__flag">
+               <img src= '${country.flag}'> </a>
+             
+        </li>`;
+    })
+    .slice(0, 30)
+    .join(" ");
+  countryList.innerHTML = markup;
+  initialize();
+}
+function initialize() {
+  windowHeight = Math.max(
+    html.clientHeight,
+    html.scrollHeight,
+    html.offsetHeight,
+    body.scrollHeight,
+    body.offsetHeight
+  );
+}
 
-  const marginTop = ((window.innerHeight - 38) / 100) * scrollPercent;
+function updateScrolledStatus(e) {
+  const scrolledPercent = Math.floor((this.scrollY / windowHeight) * 100);
+  scrollNavigated.style.width = scrolledPercent + "%";
+}
 
-  document.getElementById("index").style.marginTop = marginTop + "px";
-};
+prepareListOfCountries();
+
+// --------------------------------------------
+// event-handler
+// --------------------------------------------
+
+window.addEventListener("scroll", updateScrolledStatus);
